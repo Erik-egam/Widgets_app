@@ -25,6 +25,7 @@ class _ButtonsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context).colorScheme;
     return SizedBox(
       width: double.infinity,
       child: Padding(
@@ -40,9 +41,59 @@ class _ButtonsView extends StatelessWidget {
               icon: Icon(Icons.access_alarm_rounded),
               label: Text('Elevated Icon'),
             ),
-            FilledButton(onPressed: (){}, child: Text('filled button')),
-            FilledButton.icon(onPressed: (){}, label: Text('filled icon button'), icon: Icon(Icons.youtube_searched_for_rounded),)
+            FilledButton(onPressed: () {}, child: Text('filled button')),
+            FilledButton.icon(
+              onPressed: () {},
+              label: Text('filled icon button'),
+              icon: Icon(Icons.youtube_searched_for_rounded),
+            ),
+            OutlinedButton(onPressed: () {}, child: Text('outline button')),
+            OutlinedButton.icon(
+              onPressed: () {},
+              icon: Icon(Icons.workspaces_sharp),
+              label: Text('outline icon button'),
+            ),
+            TextButton(onPressed: () {}, child: Text('text Buttons')),
+            TextButton.icon(
+              onPressed: () {},
+              icon: Icon(Icons.access_time_filled_sharp),
+              label: Text('Text buttons icon'),
+            ),
+            IconButton(onPressed: () {}, icon: Icon(Icons.access_alarms_sharp)),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.access_alarms_sharp,),
+              style: ButtonStyle(
+                backgroundColor: WidgetStatePropertyAll(theme.primary),
+                iconColor: WidgetStatePropertyAll(Colors.black)
+              )
+              ),
+            const _CustomButton()
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _CustomButton extends StatelessWidget {
+  const _CustomButton();
+
+  @override
+  Widget build(BuildContext context) {
+  final theme = Theme.of(context).colorScheme;
+    return ClipRRect(
+      borderRadius: BorderRadiusGeometry.circular(20),
+      child: Material(
+        color: theme.primary,
+        child: InkWell(
+          onTap: () {
+            
+          },
+          child: Padding(
+            padding: EdgeInsetsGeometry.symmetric(horizontal: 20, vertical: 10),
+            child: Text('Hola mundo', style: TextStyle(color: Colors.white),),
+            ),
         ),
       ),
     );

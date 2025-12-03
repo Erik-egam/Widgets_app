@@ -36,5 +36,17 @@ final appRouter = GoRouter(
       builder: (context, state) => const AnimatedScreen(),
     ),
 
+    GoRoute(
+      path: '/progress',
+      name: ProgressScreen.name,
+      builder: (context, state) => const ProgressScreen(),
+    ),
+
+    GoRoute(
+      path: '/ui-controls',
+      name: UiControlsScreen.name,
+      builder: (context, state) => const UiControlsScreen(),
+    ),
+
   ],
 );

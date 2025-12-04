@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class MenuItems {
   final String title;
@@ -16,6 +15,14 @@ class MenuItems {
 }
 
 const appMenuItems = <MenuItems>[
+  MenuItems(
+    title: "Theme Changer",
+    subTitle: "Theme changer screen -> Aprendiendo Riverpod",
+    link: '/theme_changer',
+    icon: Icons.change_circle,
+  ),
+
+
   MenuItems(
     title: "Contador",
     subTitle: "Introduccion a riverpod",
@@ -69,7 +76,7 @@ const appMenuItems = <MenuItems>[
     title: "Introduccion a la aplicacion",
     subTitle: "Pequeño tutorial introductorio",
     link: '/tutorial',
-    icon: Icons.accessibility_new_rounded,
+    icon: Icons.color_lens_rounded,
   ),
 
   

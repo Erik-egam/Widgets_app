@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const _colorList = <Color>[
+const colorList = <Color>[
   Colors.greenAccent,
   Colors.cyan,
   Colors.deepOrangeAccent,
@@ -14,16 +14,17 @@ const _colorList = <Color>[
 
 class AppTheme {
   final int selectedColor;
+  final bool isDarkMode;
 
-  AppTheme({this.selectedColor = 0}): assert (selectedColor >= 0, "Color must be greater than 0"),
-  assert (selectedColor<_colorList.length, "Color must be less than ${_colorList.length}");
+  AppTheme({this.selectedColor = 0, this.isDarkMode = false}): assert (selectedColor >= 0, "Color must be greater than 0"),
+  assert (selectedColor<colorList.length, "Color must be less than ${colorList.length}");
   
   ThemeData getTheme(){
     return ThemeData(
-      // brightness: Brightness.dark,
+      brightness: isDarkMode ? Brightness.dark : Brightness.light,
       appBarTheme: AppBarTheme(centerTitle: true,),
       useMaterial3: true,
-      colorSchemeSeed: _colorList[selectedColor] 
+      colorSchemeSeed: colorList[selectedColor] 
     );
   }
 }
